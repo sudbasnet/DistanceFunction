@@ -48,12 +48,12 @@ Next, let me import the events data pulled from GDELT's event database for the y
 events_india_GDELT_2014 <- read.csv("events_india_GDELT_2014.csv",header=T, sep="," )
 events_india_GDELT_2014$event_date <- as.Date(substr(events_india_GDELT_2014$event_date, 1, 10),format = "%Y-%m-%d")
 ```
-Now that we have the events data imported in the format we have for the SURGE database, we need to transform it into a data.frame structure that the distance function can automatically work with. I have used the function `prepareEvent` that is available in the repository "link".
+Now that we have the events data imported in the format we have for the SURGE database, we need to transform it into a data.frame structure that the distance function can automatically work with. I have used the function [`prepareEvent`](https://github.com/sudbasnet/distanceFunction/blob/master/dataPrepration/prepareEvent.R) that is available in the repository "link".
 ```
 events_india_2014 <- prepareEvent(events_india_GDELT_2014, lat = "latitude", lon = "longitude", tstart = "event_date", tend = "event_date", eventCategory = "event_category", url = "url", uniqueid = "event_id")
 ```
 
-Similarly, I'll use the `prepareArea` function to put the area shapefiles into a fixed structure.
+Similarly, I'll use the [`prepareArea`](https://github.com/sudbasnet/distanceFunction/blob/master/dataPrepration/prepareArea.R) function to put the area shapefiles into a fixed structure.
 ```
 area_india_northeast_d <- prepareArea(map_india_northeast_d, "censuscode", "ST_NM", "DISTRICT", "population_total", "area_km_sq", "district")
 ```
@@ -63,7 +63,7 @@ Now, from the events data.frame, I will just extract the data for northeast Indi
 events_india_2014_northeast <- events_india_2014[!is.na(sp::over(events_india_2014, map_india_northeast_d)[,1]),]
 ```
 
-And finally the `prepareData` function to combine all the above data.
+And finally the [`prepareData`](https://github.com/sudbasnet/distanceFunction/blob/master/dataPrepration/prepareData.R) function to combine all the above data.
 ```
 data2_india_2014_northeast <- prepareData(events_india_2014_northeast, area_india_northeast_d, variable_india_northeast_d)
 ```
