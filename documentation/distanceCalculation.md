@@ -4,7 +4,7 @@ The distance function is currently only defined to calculate distances between t
 We will define a function that intakes events as vectors and then calculates the distance between them. For lack of a better name, I have created a function with the name `distanceFunction_vectors`.
 The link to the function's defination is [here](https://github.com/sudbasnet/distanceFunction/blob/master/function/distanceFunction_vectors.r).
 
-Next, we will form another function that will use the above function to formulate a distance matrix with the distances between each pair of events. A distance matrix is preferred because the `dbscan` of the dbscan package in R, can use an object of class `dist` which is basically a distance matrix.
+Next, we will form another function that will use the above function to formulate a distance matrix with the distances between each pair of events. A distance matrix is preferred because the `dbscan` of the **dbscan** package in R, can use an object of class `dist` which is basically a distance matrix. For more details about the package **dbscan**, please see the following [page](https://cran.r-project.org/web/packages/dbscan/dbscan.pdf).
 The function (for lack of better names :D ) is named `distanceFunction_using_vectors` and returns a distance matrix. Note that the returned matrix is not a `dist` class object.
 The function body is given [here](https://github.com/sudbasnet/distanceFunction/blob/master/function/distanceFunction_using_functionVectors.R).
 
@@ -45,4 +45,6 @@ Min. | 1st Qu. | Median | Mean | 3rd Qu. | Max.
 
 After we look at the result, we can say that adding socioeconomic distances to the spatiotemporal restricts some events to be connected to each other because they are not in similar socioeconomic environment.
 
-Next, we'll be applying the DBSCAN function to our distance matrices.
+Now, we can apply the `dbscan` function on these distance matrices. To apply the `dbscan` function we need to supply the distance matrix as a `dist` object, the `eps` parameter which is essentially the radius of neighborhood for each event. The last parameter that the `dbscan` function uses is `minPts` , this is the minimum number of points that should be inside a neighborhood of size `eps` for it to be considered a cluster. For our experiments, we will supply these points arbitarily by choosing 4 as the `minPts` and 10% of the maximum distance value in each of the distance matrices.
+Running DBSCAN clustering on the spatiotemporal distances among 1770 events with `minPts` 4 and `eps` of 0.1, we get 69 clusters and 540 noise points. For our analysis, we will examine three of the largest clusters and then three of the smallest clusters formed after the DBSCAN clustering. In DBSCAN clustering, a cluster might have border points that are shared among different core points of different clusters, in this case the border point is assigned to a cluster at random and so a cluster may have less number of points than the minPts. For the 3 smallest clusters, will only be examining clusters with at least 4 (minPts) points. The results are summaized in the plot below.
+![Number of events in each cluster (noise not included) SPATIOTEMPORAL](https://octodex.github.com/images/yaktocat.png)
