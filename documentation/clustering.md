@@ -9,8 +9,7 @@ Our goal is to find closely related events by evaluating the spatiotemporal dist
 While considering only the spatiotemporal distances, we take 10% of the max distance between events as eps and take minPts as 4. Running DBSCAN clustering on the spatiotemporal distances among 1770 events with these parameters, we get 69 clusters and 540 noise points. For our analysis, we will examine three of the largest clusters and then three of the smallest clusters formed after the DBSCAN clustering. In DBSCAN clustering, a cluster might have border points that are shared among different core points of different clusters, in this case the border point is assigned to a cluster at random and so a cluster may have less number of points than the minPts. For the 3 smallest clusters, will only be examining clusters with at least 4 (minPts) points.
 ![Number of events in each cluster (noise not included), SPATIOTEMPORAL](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/Picture1.png)
 
-Cluster    Events    Distance Summary    Event Dates    Spatial Distances (km)
-Min.    Median    Mean    Max.    Standard deviation    Min.    Max.    Min.    Avg.    Max.
-0 (noise)    540    0    1    0.9275    1    0.1578    1/1/14    12/31/14    0    250.71    727.23
-
+Cluster|Events|||Distance Summary||||Event Dates|||Spatial Distances (km)||
+|    |    |Min.|    Median|    Mean|    Max.|    Standard deviation|    Min.|    Max.|    Min.|    Avg.|    Max.|
+0 (noise)|    540|    0|    1|    0.9275|    1|    0.1578|    1/1/14|    12/31/14|    0|    250.71|    727.23|
 
