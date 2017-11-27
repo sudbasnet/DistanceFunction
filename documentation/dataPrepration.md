@@ -67,3 +67,5 @@ And finally the [`prepareData`](https://github.com/sudbasnet/distanceFunction/bl
 ```
 data2_india_2014_northeast <- prepareData(events_india_2014_northeast, area_india_northeast_d, variable_india_northeast_d)
 ```
+
+[Next: Calculating Distances](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/distanceCalculation.md)
