@@ -8,8 +8,23 @@ Our goal is to find closely related events by evaluating the spatiotemporal dist
 ### Spatiotemporal distances
 While considering only the spatiotemporal distances, we take 10% of the max distance between events as eps and take minPts as 4. Running DBSCAN clustering on the spatiotemporal distances among 1770 events with these parameters, we get 69 clusters and 540 noise points. For our analysis, we will examine three of the largest clusters and then three of the smallest clusters formed after the DBSCAN clustering. In DBSCAN clustering, a cluster might have border points that are shared among different core points of different clusters, in this case the border point is assigned to a cluster at random and so a cluster may have less number of points than the minPts. For the 3 smallest clusters, will only be examining clusters with at least 4 (minPts) points.
 ![Number of events in each cluster (noise not included), SPATIOTEMPORAL](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/Picture1.png)
+```dbscan_distanceMatrix_india_2014_northeast_spatiotemporal_max10 <- dbscan(as.dist(distanceMatrix_india_2014_northeast_spatiotemporal), eps=0.1, minPts = 4)```
 
-Cluster|Events|||Distance Summary||||Event Dates|||Spatial Distances (km)||
-|    |    |Min.|    Median|    Mean|    Max.|    Standard deviation|    Min.|    Max.|    Min.|    Avg.|    Max.|
-0 (noise)|    540|    0|    1|    0.9275|    1|    0.1578|    1/1/14|    12/31/14|    0|    250.71|    727.23|
+A summary of the noise points in the data after clustering is shown below.
+Cluster | Events | Min. | Median | Mean | Max. | Standard deviation | Min. (Event Date) | Max. (Event Date) | Min. spatial distance (km) | Avg. spatial distance (km) | Max. spatial distance (km)
+----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | -----------
+0 (noise) | 540 | 0 | 1 | 0.9275 | 1 | 0.1578 | 1/1/14 | 12/31/14 | 0 | 250.71 | 727.23
 
+Similarly, a summary of the largest three clusters and three smallest clusters are listed in table 3 and table 4 respectively.
+
+Cluster | Events | Min. | Median | Mean | Max. | Standard deviation | Min. (Event Date) | Max. (Event Date) | Min. spatial distance (km) | Avg. spatial distance (km) | Max. spatial distance (km)
+----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | -----------
+14 | 154 | 0 | 0.7477 | 0.6873 | 1 | 0.2662 | 3/20/14 | 5/12/14 | 0 | 263.01 | 723.34
+51 | 116 | 0 | 0.6975 | 0.6458 | 1 | 0.2638 | 10/5/14 | 11/11/14 | 0 | 243.27 | 723.33
+9 | 106 | 0 | 0.6991 | 0.651 | 1 | 0.2765 | 2/14/14 | 3/28/14 | 0 | 243.69 | 723.33
+
+Cluster | Events | Min. | Median | Mean | Max. | Standard deviation | Min. (Event Date) | Max. (Event Date) | Min. spatial distance (km) | Avg. spatial distance (km) | Max. spatial distance (km)
+----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | -----------
+61 | 4 | 0.05 | 0.1017 | 0.2371 | 0.9249 | 0.3399 | 11/19/14 | 11/26/14 | 0 | 62.53 | 125.07
+63 | 4 | 0.0167 | 0.0575 | 0.247 | 0.6688 | 0.3262 | 12/12/14 | 12/14/14 | 0 | 37.16 | 74.31
+69 | 4 | 0 | 0.1 | 0.1 | 0.1666 | 0.0632 | 5/28/14 | 6/7/14 | 0 | 0 | 0
