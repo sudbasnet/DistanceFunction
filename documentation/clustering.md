@@ -115,7 +115,8 @@ Plots for the above clusters are shown below:
 
 ## 3.2 Clustering Goodness
 A good quality clustering should produce clusters with high intra-cluster similarity and low inter-cluster similarity. We can calculate the goodness of our clustering by calculating the mean intra-cluster distance and mean inter-cluster distance. The goodness of the clustering is then given by:
-![formula](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/img/goodness_formula.png "Cluster 0 (Noise)")
+
+![formula](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/img/goodness_formula.png "goodness formula")
 
 To calculate the mean intra-cluster distance and inter-cluster distances, we must first calculate the centroid of each cluster. The centroid of each cluster is a virtual event whose attributes are the averages of attributes from all events in the cluster.
 
@@ -140,5 +141,33 @@ Spatiotemporal | 0.4781 | 0.545 | 0.9321 | 1.9496 | 1.7103
 Socio-economic | 0.1434 | 0.1886 | 0.4016 | 2.8006 | 2.1294
 Combined | 0.2043 | 0.2411 | 0.5694 | 2.7871 | 2.3617
 
+#### 3.2.2.2 Distance of centroid to centroid
+In this method, we calculate the distance between each pair of cluster centroids and take the mean of these distances, this mean is the mean inter-cluster distance of the clustering technique.
+
+Distance type | mean_intra_cluster_distance (Table13) - centroid to points | mean_intra_cluster_distance (Table13) - point to point | mean_inter_cluster_distance | Goodness - centroid to points | Goodness - point to point
+------------------ | ------------------ | ------------------ | ------------------ | ------------------ | ------------------
+Spatiotemporal | 0.4781 | 0.545 | 0.9114 | 1.9063 | 1.6723
+Socio-economic | 0.1434 | 0.1886 | 0.4091 | 2.8529 | 2.1691
+Combined | 0.2043 | 0.2411 | 0.5649 | 2.7651 | 2.343
+
+#### 3.2.2.3 Distance between each pair of points in separate clusters
+In this method, we calculate the distance between each point of a cluster to each point in a different cluster. After we calculate these distances for each pair of clusters, the mean of all the distances gives the mean inter-cluster distance of the clustering technique.
+
+Distance type | mean_intra_cluster_distance (Table13) - centroid to points | mean_intra_cluster_distance (Table13) - point to point | mean_inter_cluster_distance | Goodness - centroid to points | Goodness - point to point
+------------------ | ------------------ | ------------------ | ------------------ | ------------------ | ------------------
+Spatiotemporal | 0.4781 | 0.5450 | 0.9426 | 1.9716 | 1.7295
+Socio-economic | 0.1434 | 0.1886 | 0.3807 | 2.6548 | 2.0186
+Combined | 0.2043 | 0.2411 | 0.5575 | 2.7288 | 2.3123
+
+#### 3.2.2.4 Maximum distance between each pair of clusters
+In this method, we calculate the maximum distance between each pair of clusters by taking the distance of two most widely separated points belonging to these clusters. The mean of all these distances gives the mean inter-cluster distance of the clustering technique.
+
+Distance type | mean_intra_cluster_distance (Table13) - centroid to points | mean_intra_cluster_distance (Table13) - point to point | mean_inter_cluster_distance | Goodness - centroid to points | Goodness - point to point
+------------------ | ------------------ | ------------------ | ------------------ | ------------------ | ------------------
+Spatiotemporal | 0.4781 | 0.5450 | 0.9797 | 2.0492 | 1.7976
+Socio-economic | 0.1434 | 0.1886 | 0.5151 | 3.5921 | 2.7312
+Combined | 0.2043 | 0.2411 | 0.6122 | 2.9966 | 2.5392
+
+In all cases listed above, we can observe that the goodness of clustering increases for the combined clustering when compared to the spatiotemporal clustering. The addition of socio-economic distances forces the clustering to only consider locations that are either geographically close enough to be socio-economically similar or have very similar socio-economic characteristics which makes it more likely that they must be related if they also exist in a close spatiotemporal neighborhood. Although, this decreases the mean_inter_cluster_distance between clusters, it forms more closely related clusters.  We can see that the clustering goodness is the best for most cases when using just the socioeconomic distances, this is because the socioeconomic values are mostly close to each other  , this gives some information regarding the socioeconomic similarity of these different locations (/districts) but it is only after we use them alongside the spatiotemporal events data that it starts to give us a sense of the distribution of unrest events. In time, when increasingly more socioeconomic factors are incorporated, however, the clustering goodness of solely socioeconomic factors might cease to the best for most cases.
 
 
