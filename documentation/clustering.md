@@ -11,6 +11,7 @@ While considering only the spatiotemporal distances, we take 10% of the max dist
 ```dbscan_distanceMatrix_india_2014_northeast_spatiotemporal_max10 <- dbscan(as.dist(distanceMatrix_india_2014_northeast_spatiotemporal), eps=0.1, minPts = 4)```
 
 A summary of the noise points in the data after clustering is shown below.
+
 Cluster | Events | Min. | Median | Mean | Max. | Standard deviation | Min. (Event Date) | Max. (Event Date) | Min. spatial distance (km) | Avg. spatial distance (km) | Max. spatial distance (km)
 ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | -----------
 0 (noise) | 540 | 0 | 1 | 0.9275 | 1 | 0.1578 | 1/1/14 | 12/31/14 | 0 | 250.71 | 727.23
