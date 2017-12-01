@@ -31,10 +31,10 @@ Cluster | Events | Min. | Median | Mean | Max. | Standard deviation | Min. (Even
 69 | 4 | 0 | 0.1 | 0.1 | 0.1666 | 0.0632 | 5/28/14 | 6/7/14 | 0 | 0 | 0
 
 Plots for the largest and the smallest clusters formed with clustering based on spatiotemporal distances is shown below, note that the administrative divisions in the map for spatiotemporal clustering is shown on district level.
-![Cluster - 0 (Noise)](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_socioeconomic_noise_max10.png)
-![Cluster - 14](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster14_max10.png)
-![Cluster - 51](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster51_max10.png)
-![Cluster - 9](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster9_max10.png)
-![Cluster - 61](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster61_max10.png)
-![Cluster - 63](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster63_max10.png)
-![Cluster - 69](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster69_max10.png)
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_socioeconomic_noise_max10.png)
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster14_max10.png)
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster51_max10.png)
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster9_max10.png)
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster61_max10.png)
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster63_max10.png)
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster69_max10.png)
