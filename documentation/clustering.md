@@ -134,11 +134,7 @@ There are multiple ways of calculating the inter-cluster distance of clustering 
 #### 3.2.2.1 Distance of centroid to points in other clusters
 In this method, we calculate the distance of each cluster’s centroid with all the points in other clusters. The mean of all the calculated distances is the mean inter-cluster distance of the clustering technique. The columns ‘centroid to points’ and ‘point to point’ reflects the calculation made in Table 13.
 
-Distance type | " mean_intra_cluster_distance (Table13)
-centroid to points" | " mean_intra_cluster_distance (Table13)
-point to point" | mean_inter_cluster_distance | "Goodness
-centroid to points" | "Goodness
-point to point"
+Distance type | mean_intra_cluster_distance (Table13) - centroid to points | mean_intra_cluster_distance (Table13) - point to point | mean_inter_cluster_distance | Goodness - centroid to points | Goodness - point to point
 ------------------ | ------------------ | ------------------ | ------------------ | ------------------ | ------------------
 Spatiotemporal | 0.4781 | 0.545 | 0.9321 | 1.9496 | 1.7103
 Socio-economic | 0.1434 | 0.1886 | 0.4016 | 2.8006 | 2.1294
