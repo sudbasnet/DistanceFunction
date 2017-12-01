@@ -81,4 +81,40 @@ Min. | 1st Qu. | Median | Mean | 3rd Qu. | Max.
 ----------- | ----------- | ----------- | ----------- | ----------- | -----------
 0 | 0.5351 | 0.5824 | 0.5688 | 0.6333 | 0.9503
 
+DBSCAN clustering based on the combined spatiotemporal and socioeconomic distances on the same dataset gives 86 clusters with 629 noise points. The eps value is 10% of the max distance among events, 0.095026, and minPts is still 4.
 
+![Number of events in each cluster (noise not included), SPATIOTEMPORAL](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/spatiotemporal_socioeconomic_cluslterStructure.png)
+
+A summary of the noise points, 3 largest clusters and 3 of the smallest clusters is shown below.
+
+Cluster | Events | Min. | Median | Mean | Max. | Standard deviation | Min. Event date | Max. Event date | Min. Spatial Distances (km) | Avg. Spatial Distances (km) | Max. Spatial Distances (km) | Avg. Literacy rate | Standard deviation Literacy rate | Avg. Worker Population | Standard deviation Worker Population
+----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | -----------
+0 | 629 | 0.0083 | 0.598 | 0.5897 | 0.9503 | 0.1141 | 1/1/14 | 12/31/14 | 0 | 263.81 | 751.99 | 0.5218 | 0.2026 | 0.3373 | 0.2338
+
+Cluster | Events | Min. | Median | Mean | Max. | Standard deviation | Min. Event date | Max. Event date | Min. Spatial Distances (km) | Avg. Spatial Distances (km) | Max. Spatial Distances (km) | Avg. Literacy rate | Standard deviation Literacy rate | Avg. Worker Population | Standard deviation Worker Population
+----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | -----------
+10 | 156 | 0 | 0.5043 | 0.4336 | 0.6303 | 0.1491 | 2/5/14 | 8/2/14 | 0 | 195.89 | 574.27 | 0.6741 | 0.1006 | 0.168 | 0.0458
+8 | 78 | 0 | 0.4345 | 0.3916 | 0.5943 | 0.1571 | 1/28/14 | 4/8/14 | 0 | 173.42 | 521.26 | 0.5693 | 0.0912 | 0.1729 | 0.065
+4 | 60 | 0 | 0.25 | 0.2251 | 0.5566 | 0.0891 | 1/4/14 | 6/25/14 | 0 | 16.25 | 455.52 | 0.8134 | 0.0034   | 0.29 | 0.0259
+
+Cluster | Events | Min. | Median | Mean | Max. | Standard deviation | Min. Event date | Max. Event date | Min. Spatial Distances (km) | Avg. Spatial Distances (km) | Max. Spatial Distances (km) | Avg. Literacy rate | Standard deviation Literacy rate | Avg. Worker Population | Standard deviation Worker Population
+----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | -----------
+83 | 4 | 0.0083 | 0.0583 | 0.0611 | 0.1167 | 0.0496 | 12/15/14 | 12/29/14 | 0 | 0 | 0 | 0.8158 | 0 | 0.6295 | 0
+85 | 4 | 0.0083 | 0.0808 | 0.0684 | 0.093 | 0.0312 | 12/24/14 | 12/27/14 | 0 | 21.8 | 30.75 | 0.3781 | 0 | 0.1914 | 0
+86 | 4 | 0.0083 | 0.0542 | 0.0583 | 0.1083 | 0.0418 | 2/21/14 | 3/6/14 | 0 | 0 | 0 | 0.335 | 0 | 0.1847 | 0
+
+Plots for the above clusters are shown below:
+
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_combined_noise_max10.png "Cluster 0 (Noise)")
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_combined_cluster10_max10.png "Cluster 10")
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_combined_Cluster8_max10.png.png "Cluster 8")
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_combined_Cluster4_max10.png "Cluster 4")
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_combined_Cluster83_max10.png "Cluster 83")
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_combined_Cluster85_max10.png "Cluster 85")
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_combined_Cluster86_max10.png "Cluster 86")
+
+## 3.2 Clustering Goodness
+A good quality clustering should produce clusters with high intra-cluster similarity and low inter-cluster similarity. We can calculate the goodness of our clustering by calculating the mean intra-cluster distance and mean inter-cluster distance. The goodness of the clustering is then given by:
+                        |mean_inter_cluster_distance|
+goodness =   |------------------------------------|
+                        |mean_intra_cluster_distance|
