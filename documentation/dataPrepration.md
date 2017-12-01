@@ -1,4 +1,4 @@
-# DATA PREPRATION
+# 1. DATA PREPRATION
 
 First I load the libraries that we'll need for this analysis with the folowing sapply.
 ```

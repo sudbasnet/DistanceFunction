@@ -1,4 +1,4 @@
-# Distance Calculation
+# 2. Distance Calculation
 
 The distance function is currently only defined to calculate distances between two events with geographic coordinates, time stamps and some socioeconomic varibales in numberic form. So once the data is prepared, we can actually go ahead and calculate distances between various events. 
 We will define a function that intakes events as vectors and then calculates the distance between them. For lack of a better name, I have created a function with the name `distanceFunction_vectors`.
