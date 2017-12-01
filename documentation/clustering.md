@@ -115,7 +115,7 @@ Plots for the above clusters are shown below:
 
 ## 3.2 Clustering Goodness
 A good quality clustering should produce clusters with high intra-cluster similarity and low inter-cluster similarity. We can calculate the goodness of our clustering by calculating the mean intra-cluster distance and mean inter-cluster distance. The goodness of the clustering is then given by:
-![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/img/goodness_fomula.png "Cluster 0 (Noise)")
+![formula](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/img/goodness_formula.png "Cluster 0 (Noise)")
 
 To calculate the mean intra-cluster distance and inter-cluster distances, we must first calculate the centroid of each cluster. The centroid of each cluster is a virtual event whose attributes are the averages of attributes from all events in the cluster.
 
