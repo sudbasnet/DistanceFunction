@@ -7,7 +7,7 @@ Our goal is to find closely related events by evaluating the spatiotemporal dist
  
 ### Spatiotemporal distances
 While considering only the spatiotemporal distances, we take 10% of the max distance between events as eps and take minPts as 4. Running DBSCAN clustering on the spatiotemporal distances among 1770 events with these parameters, we get 69 clusters and 540 noise points. For our analysis, we will examine three of the largest clusters and then three of the smallest clusters formed after the DBSCAN clustering. In DBSCAN clustering, a cluster might have border points that are shared among different core points of different clusters, in this case the border point is assigned to a cluster at random and so a cluster may have less number of points than the minPts. For the 3 smallest clusters, will only be examining clusters with at least 4 (minPts) points.
-![Number of events in each cluster (noise not included), SPATIOTEMPORAL](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/Picture1.png)
+![Number of events in each cluster (noise not included), SPATIOTEMPORAL](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Picture1.png)
 ```dbscan_distanceMatrix_india_2014_northeast_spatiotemporal_max10 <- dbscan(as.dist(distanceMatrix_india_2014_northeast_spatiotemporal), eps=0.1, minPts = 4)```
 
 A summary of the noise points in the data after clustering is shown below.
@@ -29,3 +29,12 @@ Cluster | Events | Min. | Median | Mean | Max. | Standard deviation | Min. (Even
 61 | 4 | 0.05 | 0.1017 | 0.2371 | 0.9249 | 0.3399 | 11/19/14 | 11/26/14 | 0 | 62.53 | 125.07
 63 | 4 | 0.0167 | 0.0575 | 0.247 | 0.6688 | 0.3262 | 12/12/14 | 12/14/14 | 0 | 37.16 | 74.31
 69 | 4 | 0 | 0.1 | 0.1 | 0.1666 | 0.0632 | 5/28/14 | 6/7/14 | 0 | 0 | 0
+
+Plots for the largest and the smallest clusters formed with clustering based on spatiotemporal distances is shown below, note that the administrative divisions in the map for spatiotemporal clustering is shown on district level.
+![Cluster - 0 (Noise)](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_socioeconomic_noise_max10.png)
+![Cluster - 14](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster14_max10.png)
+![Cluster - 51](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster51_max10.png)
+![Cluster - 9](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster9_max10.png)
+![Cluster - 61](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster61_max10.png)
+![Cluster - 63](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster63_max10.png)
+![Cluster - 69](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster69_max10.png)
