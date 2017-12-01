@@ -115,6 +115,7 @@ Plots for the above clusters are shown below:
 
 ## 3.2 Clustering Goodness
 A good quality clustering should produce clusters with high intra-cluster similarity and low inter-cluster similarity. We can calculate the goodness of our clustering by calculating the mean intra-cluster distance and mean inter-cluster distance. The goodness of the clustering is then given by:
-                        |mean_inter_cluster_distance|
-goodness =   |------------------------------------|
-                        |mean_intra_cluster_distance|
+
+            |mean_inter_cluster_distance|
+            |---------------------------|
+            |mean_intra_cluster_distance|
