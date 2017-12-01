@@ -115,7 +115,34 @@ Plots for the above clusters are shown below:
 
 ## 3.2 Clustering Goodness
 A good quality clustering should produce clusters with high intra-cluster similarity and low inter-cluster similarity. We can calculate the goodness of our clustering by calculating the mean intra-cluster distance and mean inter-cluster distance. The goodness of the clustering is then given by:
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/img/goodness_fomula.png "Cluster 0 (Noise)")
 
-            |mean_inter_cluster_distance|
-            |---------------------------|
-            |mean_intra_cluster_distance|
+To calculate the mean intra-cluster distance and inter-cluster distances, we must first calculate the centroid of each cluster. The centroid of each cluster is a virtual event whose attributes are the averages of attributes from all events in the cluster.
+
+### 3.2.1 Intra-cluster distance
+The intra-cluster distance is the measure of how the points inside each cluster are distributed. We can calculate the inter-cluster distance by taking the average of each member event’s distance with the centroid of its cluster, or directly calculate the average distance between each pair of member events inside a cluster.  The intra-cluster distance for the clustering performed with each type of distance is listed in Table 13.
+
+Distance type | mean_intra_cluster_distance centroid to points | mean_intra_cluster_distance point to point
+------------- | --------------- | -------------
+Spatiotemporal | 0.4781 | 0.5450
+Socio-economic | 0.1434 | 0.1886
+Combined | 0.2043 | 0.2411
+
+### 3.2.2 Inter-cluster distance
+There are multiple ways of calculating the inter-cluster distance of clustering results as well. We look at the following four methods of calculating the mean inter-cluster distance of our clustering technique.
+
+#### 3.2.2.1 Distance of centroid to points in other clusters
+In this method, we calculate the distance of each cluster’s centroid with all the points in other clusters. The mean of all the calculated distances is the mean inter-cluster distance of the clustering technique. The columns ‘centroid to points’ and ‘point to point’ reflects the calculation made in Table 13.
+
+Distance type | " mean_intra_cluster_distance (Table13)
+centroid to points" | " mean_intra_cluster_distance (Table13)
+point to point" | mean_inter_cluster_distance | "Goodness
+centroid to points" | "Goodness
+point to point"
+------------------ | ------------------ | ------------------ | ------------------ | ------------------ | ------------------
+Spatiotemporal | 0.4781 | 0.545 | 0.9321 | 1.9496 | 1.7103
+Socio-economic | 0.1434 | 0.1886 | 0.4016 | 2.8006 | 2.1294
+Combined | 0.2043 | 0.2411 | 0.5694 | 2.7871 | 2.3617
+
+
+
