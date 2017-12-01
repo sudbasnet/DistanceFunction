@@ -7,6 +7,11 @@ Our goal is to find closely related events by evaluating the spatiotemporal dist
  
 ### Spatiotemporal distances
 While considering only the spatiotemporal distances, we take 10% of the max distance between events as eps and take minPts as 4. Running DBSCAN clustering on the spatiotemporal distances among 1770 events with these parameters, we get 69 clusters and 540 noise points. For our analysis, we will examine three of the largest clusters and then three of the smallest clusters formed after the DBSCAN clustering. In DBSCAN clustering, a cluster might have border points that are shared among different core points of different clusters, in this case the border point is assigned to a cluster at random and so a cluster may have less number of points than the minPts. For the 3 smallest clusters, will only be examining clusters with at least 4 (minPts) points.
+
+Min. | 1st Qu. | Median | Mean | 3rd Qu. | Max.
+----------- | ----------- | ----------- | ----------- | ----------- | -----------
+0 | 0.9806 | 1 | 0.9287 | 1 | 1
+
 ![Number of events in each cluster (noise not included), SPATIOTEMPORAL](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Picture1.png)
 ```dbscan_distanceMatrix_india_2014_northeast_spatiotemporal_max10 <- dbscan(as.dist(distanceMatrix_india_2014_northeast_spatiotemporal), eps=0.1, minPts = 4)```
 
@@ -31,10 +36,41 @@ Cluster | Events | Min. | Median | Mean | Max. | Standard deviation | Min. (Even
 69 | 4 | 0 | 0.1 | 0.1 | 0.1666 | 0.0632 | 5/28/14 | 6/7/14 | 0 | 0 | 0
 
 Plots for the largest and the smallest clusters formed with clustering based on spatiotemporal distances is shown below, note that the administrative divisions in the map for spatiotemporal clustering is shown on district level.
-![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_socioeconomic_noise_max10.png)
-![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster14_max10.png)
-![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster51_max10.png)
-![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster9_max10.png)
-![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster61_max10.png)
-![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster63_max10.png)
-![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster69_max10.png)
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_noise_max10.png "Cluster 0 (Noise)")
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster14_max10.png  "Cluster 14")
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster51_max10.png "Cluster 51")
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster9_max10.png "Cluster 9")
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster61_max10.png "Cluster 61")
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster63_max10.png "Cluster 63")
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_spatiotemporal_cluster69_max10.png "Cluster 69")
+
+### Socioeconomic distances
+Similarly, we now look at the DBSCAN clustering based on only socioeconomic distances. Using the same technique for eps selection for socioeconomic distances we only get 5 clusters with almost all events in the 1st cluster. A summary of the socioeconomic distances between events is shown in Table 5.
+
+Min. | 1st Qu. | Median | Mean | 3rd Qu. | Max.
+----------- | ----------- | ----------- | ----------- | ----------- | -----------
+0 | 0.1126 | 0.1855 | 0.209 | 0.2836 | 0.9005
+
+
+![Number of events in each cluster (noise not included), SPATIOTEMPORAL](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/socioeconomic_clustering_structure.png)
+
+A summary of the clusters formed by clustering of all events based on socioeconomic distances are shown below. Note that the values of Literacy Rate and Worker population used are the normalized values that are used in the distance calculation.
+
+Cluster | Events | Min. | Median | Mean | Max. | Standard deviation | Avg. Literacy Rate | Standard Deviation Literacy Rate | Avg. Worker Pop. | Standard Deviation Worker Pop.
+----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | -----------
+0 (noise) | 1 | 0 | 0 | 0 | 0 | 0 | 0.4764 | 0 | 0.8235 | 0
+1 | 1721 | 0 | 0.181 | 0.1992 | 0.7688 | 0.1239 | 0.5687 | 0.1839 | 0.2774 | 0.1791
+2 | 7 | 0 | 0 | 0 | 0 | 0 | 0.736 | 0 | 0.8401 | 0
+3 | 31 | 0 | 0 | 0 | 0 | 0 | 0.9995 | 0 | 0.5546 | 0
+4 | 5 | 0 | 0.0789 | 0.0473 | 0.0789 | 0.0407 | 0.9756 | 0.0223 | 0.8671 | 0.0641
+5 | 5 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.1363 | 0
+
+Plots for the results listed for socioeconomic clustering are shown below. Note that the administrative division shown in the maps below are on district level.
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_socioeconomic_noise_max10.png "Cluster 0 (Noise)")
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_socioeconomic_cluster1_max10.png "Cluster 1")
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_socioeconomic_cluster2_max10.png "Cluster 2")
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_socioeconomic_cluster3_max10.png "Cluster 3")
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_socioeconomic_cluster4_max10.png "Cluster 4")
+![alt text](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/plots/Rplot02_socioeconomic_cluster5_max10.png "Cluster 5")
+
+### Combined spatiotemporal and socioeconomic distances
