@@ -1,4 +1,15 @@
-distanceFunction_vectors_infra <- function(event1, points1, event2, points2, dmax, tmax, var_count, infra_count, spatial_dist_fun=distHaversine, weight_spatiotemporal = 0.5, spatialORsocioORinfra = 'all'){
+distanceFunction_vectors_infra_working <-
+function(event1,
+    points1,
+    event2,
+    points2,
+    dmax,
+    tmax,
+    var_count,
+    infra_count,
+    spatial_dist_fun=distHaversine,
+    spatialORsocioORinfra = 'all')
+{
 	# event will have the socioeconomic variables only [population, event_startdate, event_enddate, category, var1, var2, var3 ... ]
 	# points will have lon lat in coordinates form 
 	# equal weights will be assigned to each variable
@@ -91,9 +102,14 @@ distanceFunction_vectors_infra <- function(event1, points1, event2, points2, dma
 	} 
 
 	d_final <- NA
-	d_final[1] <- d_spatiotemporal
-	d_final[2] <- d_socioeconomic
-	d_final[3] <- d_infrastructure
-	# d_final <- ( weight_spatiotemporal * d_spatiotemporal ) + ( weight_socioeconomic * d_socioeconomic )
+	d_final["spatiotemporal"] <- d_spatiotemporal
+	d_final["socioeconomic"] <- d_socioeconomic
+	d_final["infrastructural"] <- d_infrastructure
+    d_final["spatial_km"] <- d_spatial
+    d_final["spatial_normalized"] <- dspatialnormalized
+    d_final["temporal_days"] <- dtemporal_directional
+    d_final["temporal_normalized"] <- dtemporalnormalized
+    d_final["wtemporal"] <- wtemporal
+    d_final["wspatial"] <- wspatial
 	return(d_final)
 }
