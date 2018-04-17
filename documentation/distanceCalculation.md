@@ -1,5 +1,6 @@
 # 2. Distance Calculation
 
+UPDATE: please use distanceFunction_using_vectors_infra_working.R and distanceFunction_using_functionVectors_infra-added.R instead. Go to the folder [this](https://github.com/sudbasnet/distanceFunction/tree/master/function)
 The distance function is currently only defined to calculate distances between two events with geographic coordinates, time stamps and some socioeconomic varibales in numberic form. So once the data is prepared, we can actually go ahead and calculate distances between various events. 
 We will define a function that intakes events as vectors and then calculates the distance between them. For lack of a better name, I have created a function with the name `distanceFunction_vectors`.
 The link to the function's defination is [here](https://github.com/sudbasnet/distanceFunction/blob/master/function/distanceFunction_vectors.r).
