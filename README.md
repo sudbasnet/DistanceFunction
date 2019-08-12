@@ -1,6 +1,6 @@
 # distanceFunction
-w.i.p. for a distance function to be used in a weighted distance between events (spatial and temporal locations).
+R scripts and data-prepration steps for the distance function to be used in calculating multi-factorial distance between social unrest events.
 
-## 1. [Data Prepration](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/dataPrepration.md) 
-## 2. [Calculating Distances](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/distanceCalculation.md)
-## 3. [Clustering](https://github.com/sudbasnet/distanceFunction/blob/master/documentation/clustering.md)
+## 1. [Data Prepration](./documentation/dataPrepration.md) 
+## 2. [Calculating Distances](./documentation/distanceCalculation.md)
+## 3. [Clustering](./documentation/clustering.md)
