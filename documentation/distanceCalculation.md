@@ -2,7 +2,7 @@
 
 The distance function is currently only defined to calculate distances between two events with geographic coordinates, time stamps and some socioeconomic variables in numberic form. So once the data is prepared, we can actually go ahead and calculate distances between various events.
 We will define a function that intakes events as vectors and then calculates the distance between them. I have created a function with the name `distanceFunction`.
-The link to the function's defination is [here](./scripts/distanceFunction.R).
+The link to the function's defination is [here](../distanceFunction.R).
 
 Next, we will form another function that will use the above function to formulate a distance matrix with the distances between each pair of events. A distance matrix is preferred because the `dbscan` of the **dbscan** package in R, can use an object of class `dist` which is basically a distance matrix. For more details about the package **dbscan**, please see the following [page](https://cran.r-project.org/web/packages/dbscan/dbscan.pdf).
 The function is named `distanceFunction_processData` and returns a distance matrix. Note that the returned matrix is not a `dist` class object.
